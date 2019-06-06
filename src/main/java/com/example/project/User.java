@@ -1,32 +1,18 @@
 package com.example.project;
-public class User {
 
-    private String name;
-    private String surname;
-    private int mountlyIncome;
-    private String telephone;
-    private String tcNo;
-    private int creditScore;
-    public User(){
-        this.name="";
-        this.surname="";
-        this.mountlyIncome=0;
-        this.telephone="";
-        this.tcNo="";
-        this.creditScore=0;
-    }
-    public String calculateCredit(){
-        int creditLimitMultiplier=4;
-        String creditResult="";
-        if(this.creditScore<500){
-            creditResult="Kredi başvurunuz reddedilmiştir";
-        }else if(this.creditScore>500 && this.creditScore<1000 && this.mountlyIncome<5000){
-            creditResult="10.000 TL ye kadar kredi kullanabilirsiniz.";
-        }else{
-            int credit=creditLimitMultiplier*this.mountlyIncome;
-            creditResult=credit+"TL ye kadar kredi kullanabilirsiniz.";
-        }
-        return creditResult;
+import java.util.HashMap;
+
+public class User {
+    private String name="";
+    private String surname="";
+    private String password="";
+    private String email="";
+    private ItemList itemList=new ItemList();
+
+    User(String name, String surname, String password){
+        this.name=name;
+        this.surname=surname;
+        this.password=password;
     }
 
     public String getName() {
@@ -45,35 +31,27 @@ public class User {
         this.surname = surname;
     }
 
-    public int getMountlyIncome() {
-        return mountlyIncome;
+    public String getPassword() {
+        return password;
     }
 
-    public void setMountlyIncome(int mountlyIncome) {
-        this.mountlyIncome = mountlyIncome;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getId() {
+        return email;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setId(String id) {
+        this.email = id;
     }
 
-    public String getTcNo() {
-        return tcNo;
+    public ItemList getItemList() {
+        return itemList;
     }
 
-    public void setTcNo(String tcNo) {
-        this.tcNo = tcNo;
-    }
-
-    public int getCreditScore() {
-        return creditScore;
-    }
-
-    public void setCreditScore(int creditScore) {
-        this.creditScore = creditScore;
+    public void setItemList(ItemList itemList) {
+        this.itemList = itemList;
     }
 }
